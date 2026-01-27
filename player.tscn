@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bvpso34w1w2y4"]
+
+[ext_resource type="Texture2D" uid="uid://bfnbpx8mep8q1" path="res://assets/stuff/sprites/Character.name.png" id="2_onrkg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4flbx"]
+size = Vector3(0.6772766, 1.4253693, 0.09290314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(183, 0, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(366, 0, 183, 137)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D" unique_id=1353682580]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1296403280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5896167, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2041650992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.12288666, -0.0020561218)
+shape = SubResource("BoxShape3D_4flbx")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1288977777]
+sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"Down"
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1336878015]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1280124, 3.441607)
