@@ -16,21 +16,57 @@ sky = SubResource("Sky_d36wb")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ur8t8"]
-height = 1.2600098
-radius = 0.32226563
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ox84e"]
+radius = 0.2841797
+height = 1.3000488
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_nb2rl")
 region = Rect2(183, 0, 183, 137)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(366, 0, 183, 137)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_nb2rl")
 region = Rect2(0, 0, 183, 137)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox84e"]
 atlas = ExtResource("2_nb2rl")
-region = Rect2(366, 0, 183, 137)
+region = Rect2(183, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc7sm"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(366, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecka5"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(0, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmxew"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(183, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xev8"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(366, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c722"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(0, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qea31"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(183, 411, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvsde"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(0, 411, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5ei1"]
+atlas = ExtResource("2_nb2rl")
+region = Rect2(366, 411, 183, 137)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0o0t3"]
 animations = [{
@@ -39,24 +75,73 @@ animations = [{
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
+"texture": SubResource("AtlasTexture_hqtel")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
+"texture": SubResource("AtlasTexture_i3pqv")
 }],
 "loop": true,
 "name": &"Down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox84e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc7sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox84e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecka5")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c722")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qea31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvsde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qea31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5ei1")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
 }]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ur8t8"]
-size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb2rl"]
-size = Vector3(10, 1, 10)
 
 [node name="Node3D" type="Node3D" unique_id=994412961]
 
@@ -74,20 +159,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5896167, 0)
 script = ExtResource("1_ur8t8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1413110806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.04244232, -0.0020561218)
-shape = SubResource("CylinderShape3D_ur8t8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
+shape = SubResource("CapsuleShape3D_ox84e")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1410777464]
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_0o0t3")
-animation = &"Down"
-frame = 2
-frame_progress = 0.87425107
+animation = &"Right"
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=482546069]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1280124, 3.441607)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1897056731]
+transform = Transform3D(5.9080453, 0, 0, 0, 1, 0, 0, 0, 7.187661, 0, 0, 0)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -100,5 +184,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50000036, 0)
 mesh = SubResource("BoxMesh_ur8t8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=360649740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_nb2rl")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=70446887]
+transform = Transform3D(11.288025, 0, 0, 0, 1, 0, 0, 0, 7.6245766, 7.088595, 0.42712164, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=846176892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50000036, 0)
+mesh = SubResource("BoxMesh_ur8t8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1000163994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_nb2rl")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=188185543]
+transform = Transform3D(4.704648, -0.46410015, 0, 2.4649699, 0.8857827, 0, 0, 0, 2.6772335, -0.881489, -0.80505323, -2.115015)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1914714721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50000036, 0)
+mesh = SubResource("BoxMesh_ur8t8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=313387541]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_nb2rl")
