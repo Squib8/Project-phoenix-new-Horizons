@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b86y5vve1qdwl"]
+
+[ext_resource type="Script" uid="uid://c3ca3dsowyply" path="res://floor_button.gd" id="1_xuy16"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oyucw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xmcac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmt7l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tonfm"]
+size = Vector3(1, 0.10333252, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7e84"]
+size = Vector3(1, 0.5083008, 1)
+
+[sub_resource type="Animation" id="Animation_uxbyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.057176173, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2yly4"]
+resource_name = "pressdown"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.057176173, 0), Vector3(0, -0.030412197, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_25fm6"]
+resource_name = "pressup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.030412197, 0), Vector3(0, 0.057176173, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dgbe"]
+_data = {
+&"RESET": SubResource("Animation_uxbyf"),
+&"pressdown": SubResource("Animation_2yly4"),
+&"pressup": SubResource("Animation_25fm6")
+}
+
+[node name="FloorButton" type="StaticBody3D" unique_id=1296328485]
+script = ExtResource("1_xuy16")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=578749373]
+transform = Transform3D(1, 0, 0, 0, -0.100000024, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_oyucw")
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=821488673]
+transform = Transform3D(1, 0, 0, 0, -0.100000024, 0, 0, 0, 1, 0, 0.057176173, 0)
+mesh = SubResource("CylinderMesh_xmcac")
+surface_material_override/0 = SubResource("StandardMaterial3D_mmt7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=270126127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0005187988, 0)
+shape = SubResource("BoxShape3D_tonfm")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=585672213]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2014724761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24584961, 0)
+shape = SubResource("BoxShape3D_l7e84")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1518439894]
+libraries/ = SubResource("AnimationLibrary_5dgbe")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
