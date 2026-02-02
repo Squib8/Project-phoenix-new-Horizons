@@ -1,137 +1,13 @@
 [gd_scene format=3 uid="uid://dp5ljf7ikvsig"]
 
-[ext_resource type="Script" uid="uid://ds3acjlnmul31" path="res://scrips/Player.control.gd" id="1_ur8t8"]
-[ext_resource type="Texture2D" uid="uid://bfnbpx8mep8q1" path="res://assets/stuff/sprites/Character.name.png" id="2_nb2rl"]
-[ext_resource type="PackedScene" uid="uid://b86y5vve1qdwl" path="res://Objects/floor_button.tscn" id="3_ecka5"]
+[ext_resource type="PackedScene" uid="uid://bvpso34w1w2y4" path="res://scenes/player.tscn" id="2_ox84e"]
+[ext_resource type="PackedScene" uid="uid://b86y5vve1qdwl" path="res://objects/floor_button.tscn" id="3_ecka5"]
 
 [sub_resource type="Sky" id="Sky_ox84e"]
 
 [sub_resource type="Environment" id="Environment_ecka5"]
 background_mode = 2
 sky = SubResource("Sky_ox84e")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ox84e"]
-radius = 0.2841797
-height = 1.3000488
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(183, 0, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(366, 0, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(0, 0, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ox84e"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(183, 137, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wc7sm"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(366, 137, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ecka5"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(0, 137, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmxew"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(183, 274, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xev8"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(366, 274, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c722"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(0, 274, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qea31"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(183, 411, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvsde"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(0, 411, 183, 137)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5ei1"]
-atlas = ExtResource("2_nb2rl")
-region = Rect2(366, 411, 183, 137)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0o0t3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}],
-"loop": true,
-"name": &"Down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ox84e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wc7sm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ox84e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ecka5")
-}],
-"loop": true,
-"name": &"Left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmxew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xev8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmxew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3c722")
-}],
-"loop": true,
-"name": &"Right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qea31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvsde")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qea31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d5ei1")
-}],
-"loop": true,
-"name": &"Up",
-"speed": 5.0
-}]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ur8t8"]
 
@@ -149,22 +25,6 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1098120152]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1292523034]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17446172, 1.0194964, -0.07853413)
-script = ExtResource("1_ur8t8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1413110806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
-shape = SubResource("CapsuleShape3D_ox84e")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1410777464]
-billboard = 2
-sprite_frames = SubResource("SpriteFrames_0o0t3")
-animation = &"Right"
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=482546069]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1280124, 3.441607)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1897056731]
 transform = Transform3D(5.9080453, 0, 0, 0, 1, 0, 0, 0, 7.187661, 0, 0, 0)
@@ -288,3 +148,5 @@ shape = SubResource("BoxShape3D_nb2rl")
 
 [node name="FloorButton" parent="." unique_id=1296328485 instance=ExtResource("3_ecka5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1327415, 0.4559837, -2.8743963)
+
+[node name="Player" parent="." unique_id=1353682580 instance=ExtResource("2_ox84e")]

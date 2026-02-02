@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bvpso34w1w2y4"]
+
+[ext_resource type="Script" uid="uid://ds3acjlnmul31" path="res://scrips/Player.control.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bfnbpx8mep8q1" path="res://assets/stuff/sprites/Character.name.png" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhqgy"]
+radius = 0.2841797
+height = 1.3000488
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(183, 0, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(366, 0, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox84e"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(183, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc7sm"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(366, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecka5"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 137, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmxew"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(183, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xev8"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(366, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c722"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 274, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qea31"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(183, 411, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvsde"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 411, 183, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5ei1"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(366, 411, 183, 137)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox84e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc7sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox84e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecka5")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c722")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qea31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvsde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qea31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5ei1")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node3D" unique_id=1353682580]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=948832084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006593466, 0.60927474, 0.008367062)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=455190904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
+shape = SubResource("CapsuleShape3D_qhqgy")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1022909559]
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_dqkch")
+animation = &"Right"
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1646163937]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1280124, 3.441607)
