@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b86y5vve1qdwl" path="res://objects/floor_button.tscn" id="3_ecka5"]
 [ext_resource type="Material" uid="uid://dcfkcyddxkglf" path="res://addons/portals/materials/editor-preview-portal-material.tres" id="4_5xev8"]
 [ext_resource type="Script" uid="uid://bxcel82b180o3" path="res://addons/portals/scripts/portal_boxmesh.gd" id="5_wc7sm"]
+[ext_resource type="PackedScene" uid="uid://dxnliky446rb7" path="res://objects/coin.tscn" id="6_5xev8"]
 
 [sub_resource type="Sky" id="Sky_ox84e"]
 
@@ -240,6 +241,7 @@ shape = SubResource("BoxShape3D_nb2rl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1327415, 0.4559837, 0.90075827)
 
 [node name="Player" parent="." unique_id=1353682580 instance=ExtResource("2_ox84e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.545888, 2.4235756, 0)
 
 [node name="Portal3D" type="Node3D" parent="." unique_id=659816444 node_paths=PackedStringArray("exit_portal") groups=["portals"]]
 process_priority = 100
@@ -363,3 +365,27 @@ shape = SubResource("BoxShape3D_3c722")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D11" unique_id=1872484413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22818375, -0.5, -0.32611752)
 shape = SubResource("BoxShape3D_3c722")
+
+[node name="Coin" parent="." unique_id=1710574990 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.69546, 2.705634, 0)
+
+[node name="Coin2" parent="." unique_id=258194994 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.760546, 3.3498142, 0)
+
+[node name="Coin3" parent="." unique_id=1373216094 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3393, 3.3498142, -1.5646892)
+
+[node name="Coin5" parent="." unique_id=776941160 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.19044, 8.238758, -1.7481117)
+
+[node name="Coin6" parent="." unique_id=1558959985 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.763525, 3.3498142, 1.3153777)
+
+[node name="Coin7" parent="." unique_id=523318750 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.727081, 3.3498142, -1.3253291)
+
+[node name="Coin8" parent="." unique_id=96254953 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.727081, 3.3498142, -1.3253291)
+
+[node name="Coin4" parent="." unique_id=403442792 instance=ExtResource("6_5xev8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.498276, 3.2136889, 2.0536346)

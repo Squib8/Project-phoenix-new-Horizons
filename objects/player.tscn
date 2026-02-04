@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://ds3acjlnmul31" path="res://scrips/Player.control.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bfnbpx8mep8q1" path="res://assets/stuff/sprites/Character.name.png" id="2_onrkg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhqgy"]
-radius = 0.2841797
-height = 1.3000488
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_onrkg")
 region = Rect2(183, 0, 183, 137)
@@ -126,6 +122,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ykyjo"]
+radius = 0.65858626
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhqgy"]
+radius = 0.2841797
+height = 1.3000488
+
 [node name="Player" type="Node3D" unique_id=1353682580]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=948832084]
@@ -134,14 +137,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006593466, 0.60927474, 0.0
 collision_layer = 32769
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=455190904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
-shape = SubResource("CapsuleShape3D_qhqgy")
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1022909559]
 billboard = 2
+texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"Right"
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1002843917]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.7286592, 3.441607)
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D" unique_id=1260740200]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D" unique_id=455190904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
+shape = SubResource("SphereShape3D_ykyjo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=392354510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030899048, 0.066978455, -0.0020561218)
+shape = SubResource("CapsuleShape3D_qhqgy")
