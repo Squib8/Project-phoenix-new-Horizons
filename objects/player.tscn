@@ -129,7 +129,9 @@ animations = [{
 [node name="Player" type="Node3D" unique_id=1353682580]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=948832084]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006593466, 0.60927474, 0.008367062)
+collision_layer = 32769
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=455190904]
@@ -141,5 +143,5 @@ billboard = 2
 sprite_frames = SubResource("SpriteFrames_dqkch")
 animation = &"Right"
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1646163937]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1280124, 3.441607)
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1002843917]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.7286592, 3.441607)
